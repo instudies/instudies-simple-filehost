@@ -17,7 +17,7 @@ class UploadHandler
     function __construct($response, $options=null) {
         $this->response = $response;
         $this->options = array(
-            'script_url' => $this->getFullUrl().'/',
+            'script_url' => $this->getFullUrl().'/server/',
             'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']).'/files/',
             'upload_url' => 'http://pic.dev.instudi.es/',
             'param_name' => 'files',
@@ -121,19 +121,16 @@ protected function pcgbasename($param, $suffix=null) {
     protected function get_file_objects() {
         $max = 10;
         $files = scandir($this->options['upload_dir']);
-        $c=0;
         foreach ($files as $f){
-            $c++;
-            if ($c <= $max)
             $tmp[$this->pcgbasename($f)] = filemtime($this->options['upload_dir'].$f);
         }
         asort($tmp);
         $files = array_keys($tmp);
         $files = array_reverse($files);
-        return array_values(array_filter(array_map(
+        return array_slice(array_values(array_filter(array_map(
             array($this, 'get_file_object'),
             $files
-        )));
+        ))), 0, 5);
     }
 
     protected function create_scaled_image($file_name, $options) {
