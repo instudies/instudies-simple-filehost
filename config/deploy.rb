@@ -30,7 +30,7 @@ namespace :instudies do
         run "curl -s http://getcomposer.org/installer | php -- --install-dir=#{release_path}"
         run "cd #{release_path} && #{release_path}/composer.phar install"
 		run "sudo chown -R nginx:www-workers #{release_path} #{release_path}/../../current"
-		run "sudo chmod -R 670 #{release_path} #{release_path}/../../current"
+		run "sudo chmod -R 770 #{release_path} #{release_path}/../../current"
     end
 
 end
