@@ -34,10 +34,13 @@
 </head>
 <body>
 <div class="container">
+{#
     <div class="page-header">
         <h1>Загрузка изображений instudies</h1>
     </div>
-    <form id="fileupload" action="/server/" method="POST" enctype="multipart/form-data">
+#}
+    <form id="fileupload" action="/server/" method="POST" enctype="multipart/form-data" style="margin:-60px 0 0 0;">
+{#
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
         <div class="row fileupload-buttonbar">
             <div class="span7">
@@ -71,6 +74,7 @@
                 <div class="progress-extended">&nbsp;</div>
             </div>
         </div>
+#}
         <!-- The loading indicator is shown during file processing -->
         <div class="fileupload-loading"></div>
         <br>
