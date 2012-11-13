@@ -130,7 +130,7 @@ protected function pcgbasename($param, $suffix=null) {
         return array_slice(array_values(array_filter(array_map(
             array($this, 'get_file_object'),
             $files
-        ))), 0, 5);
+        ))), 0, 20);
     }
 
     protected function create_scaled_image($file_name, $options) {
