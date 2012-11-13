@@ -1,0 +1,1 @@
+![](http://instudies.com/frontend/i/mainHeader__logo.png)

@@ -1,0 +1,12 @@
+/files/files/*
+/files/thumbs/*
+composer.phar
+composer.lock
+vendor/*
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db

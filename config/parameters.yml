@@ -1,0 +1,10 @@
+parameters:
+
+    folder:     /instudies-simplefilehost/files/
+
+    # Режим приложения
+    debug:      true
+
+    # Пользователь
+    user:       instudies
+    password:   instudiesisthebest
