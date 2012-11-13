@@ -18,8 +18,10 @@ $app->match('/server', function () use ($app) {
 
 	$upload_handler = new UploadHandler($response, array(
 		'upload_dir' => $app['parameters']['folder'].'files/',
-		'thumbnail' => array(
-			'upload_dir' => $app['parameters']['folder'].'thumbs/',
+		'image_versions' => array(
+			'thumbnail' => array(
+				'upload_dir' => $app['parameters']['folder'].'thumbs/',
+			)
 		)
 	));
 

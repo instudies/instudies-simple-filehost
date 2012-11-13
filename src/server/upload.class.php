@@ -155,7 +155,8 @@ protected function pcgbasename($param, $suffix=null) {
         }
         $new_width = $img_width * $scale;
         $new_height = $img_height * $scale;
-        $new_img = @imagecreatetruecolor($new_width, $new_height);
+        $new_img = imagecreatetruecolor($new_width, $new_height);
+
         switch (strtolower(substr(strrchr($file_name, '.'), 1))) {
             case 'jpg':
             case 'jpeg':
@@ -182,6 +183,7 @@ protected function pcgbasename($param, $suffix=null) {
             default:
                 $src_img = null;
         }
+
         $success = $src_img && @imagecopyresampled(
             $new_img,
             $src_img,
@@ -191,10 +193,12 @@ protected function pcgbasename($param, $suffix=null) {
             $img_width,
             $img_height
         ) && $write_image($new_img, $new_file_path, $image_quality);
+
         // Free up memory (imagedestroy does not delete files):
         @imagedestroy($src_img);
         @imagedestroy($new_img);
         return $success;
+
     }
 
     protected function validate($uploaded_file, $file, $error, $index) {
